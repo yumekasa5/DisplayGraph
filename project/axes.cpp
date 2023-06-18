@@ -6,7 +6,7 @@ Axes::Axes(QObject *parent)
 
 }
 
-Axes* Axes::xAxes()
+Axis* Axes::xAxis()
 {
     return mXAxis;
 }

@@ -11,11 +11,12 @@
 
 #include "plot.h"
 #include "axis.h"
+#include "axes.h"
 
 
-class Plot;
-class Axis;
-class Axes;
+//class Plot;
+//class Axis;
+//class Axes;
 
 namespace Ui {
 class Graph;
@@ -26,13 +27,13 @@ class Graph : public QWidget
     Q_OBJECT
 
 public:
-    explicit Graph(QWidget *parent = nullptr);
+    explicit Graph(QMultiMap<Axis*, Plot*>& plotMap, QWidget *parent = nullptr);
     ~Graph();
 
     void setPlot(Plot* plot, Axis* yAxis);
     void setPlot(int column, Axis* yAxis);
 
-    QMap<Axis*, Plot>& plots();
+    QMap<Axis*, Plot*>& plots();
     Plot* plot(int column);
     Axis* xAxis();
 
@@ -52,9 +53,12 @@ private slots:
     void onXAxesVisibleChange(bool visible);
 
     //! Model
-    //!TODO:Model below
-
-
+    void onDataChange(const QModelIndex &topleft, const QModelIndex &bottomright,
+                      const QVector<int> &roles = QVector<int>());
+    void onRowsInsert(const QModelIndex &param, int first, int last);
+    void onRowsAboutToBeRomove(const QModelIndex &param, int first, int last);
+    void onRowsRemove(const QModelIndex &param, int first, int last);
+    void onResetModel();
 
 private:
     Ui::Graph *ui;
@@ -63,13 +67,13 @@ private:
     void drawGrid(QPainter *painter);
     void drawCurves(QPainter *painter);
 
-    enum class MarkType{
+    enum {
         Margin = 10,
         TickMarksWidth = 5,
-    };Q_ENUM(MarkType)
+    };
 
     //! member
-    QMultiMap<Axis*, Plot*> mPlotMap;
+    QMultiMap<Axis*, Plot*>& mPlotMap;
     Axes* mAxes;
     QPixmap mPixMap;
     int mVisibleYAxesCount;

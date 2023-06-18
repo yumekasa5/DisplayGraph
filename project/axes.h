@@ -14,7 +14,7 @@ public:
     explicit Axes(int numAxes, QObject *parent = nullptr);
     ~Axes();
 
-    Axes* xAxes();
+    Axis* xAxis();
     Axis* yAxes(int key);
     QVector<Axis*>& yAxes();
 
