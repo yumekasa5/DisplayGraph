@@ -77,7 +77,11 @@ int Plot::count() const
 
 void Plot::clear()
 {
-
+    mPlottedCount = 0;
+    mMinData.setX(std::numeric_limits<double>::max());
+    mMinData.setY(std::numeric_limits<double>::max());
+    mMaxData.setX(std::numeric_limits<double>::min());
+    mMaxData.setY(std::numeric_limits<double>::min());
 }
 
 double Plot::yData(int index) const
@@ -88,16 +92,6 @@ double Plot::yData(int index) const
 double Plot::xData(int index) const
 {
     return mModel->index(index, 0).data().toDouble();
-}
-
-int Plot::plottedPoint() const
-{
-
-}
-
-void Plot::setPlottedPoint(int plottedCount)
-{
-
 }
 
 void Plot::clearPlottedPoint()

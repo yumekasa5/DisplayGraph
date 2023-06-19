@@ -30,8 +30,17 @@ public:
     double yData(int index) const;
     double xData(int index) const;
 
-    inline int plottedPoint() const;
-    inline void setPlottedPoint(int plottedCount);
+    inline int plottedPoint() const{
+        return mPlottedCount;
+    };
+    inline void setPlottedPoint(int plottedCount){
+        if(plottedCount < 0){
+            mPlottedCount = 0;
+        }
+        else {
+            mPlottedCount = plottedCount;
+        }
+    };
     void clearPlottedPoint();
 
     bool calculateMinMaxData(const QModelIndex &yIndex, const QModelIndex &xIndex = QModelIndex());

@@ -6,9 +6,8 @@
 
 Graph::Graph(QMultiMap<Axis*, Plot*>& plotMap, QWidget *parent) :
     QWidget(parent),
-    mVisibleYAxesCount(1),
-    mPlotMap(plotMap),
-    ui(new Ui::Graph)
+    ui(new Ui::Graph),
+    mPlotMap(plotMap)
 {
     ui->setupUi(this);
 

@@ -6,13 +6,14 @@
 
 #include "axis.h"
 
+class Axis;
+
 class Axes : public QObject
 {
     Q_OBJECT
 public:
     explicit Axes(QObject *parent = nullptr);
     explicit Axes(int numAxes, QObject *parent = nullptr);
-    ~Axes();
 
     Axis* xAxis();
     Axis* yAxes(int key);

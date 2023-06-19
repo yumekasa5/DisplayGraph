@@ -13,10 +13,9 @@
 #include "axis.h"
 #include "axes.h"
 
-
-//class Plot;
-//class Axis;
-//class Axes;
+class Plot;
+class Axis;
+class Axes;
 
 namespace Ui {
 class Graph;

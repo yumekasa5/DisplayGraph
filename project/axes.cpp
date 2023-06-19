@@ -6,6 +6,14 @@ Axes::Axes(QObject *parent)
 
 }
 
+Axes::Axes(int numAxes, QObject *parent)
+{
+    mXAxis = new Axis(parent);
+    for(int n = 0; n < numAxes; n++){
+        mYAxes.append(new Axis(parent));
+    }
+}
+
 Axis* Axes::xAxis()
 {
     return mXAxis;
