@@ -72,3 +72,6 @@ CMakeLists.txt.user*
 *.dll
 *.exe
 
+build-DisplayGraph-Desktop_Qt_5_15_2_MSVC2015_64bit-Debug/.qmake.stash
+build-DisplayGraph-Desktop_Qt_5_15_2_MSVC2015_64bit-Debug/.qtc_clangd/compile_commands.json
+build-DisplayGraph-Desktop_Qt_5_15_2_MSVC2015_64bit-Debug/debug/moc_predefs.h
